@@ -144,3 +144,5 @@ $RECYCLE.BIN/
 .DS_Store
 
 _NCrunch*
+WebApi/obj/Debug/net6.0/WebApi.AssemblyInfo.cs
+WebApi/obj/Debug/net6.0/WebApi.AssemblyInfoInputs.cache
