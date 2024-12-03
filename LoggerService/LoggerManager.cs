@@ -4,7 +4,10 @@ using NLog;
 namespace LoggerService;
 public class LoggerManager : ILoggerManager
 {
-	private static ILogger logger = LogManager.GetCurrentClassLogger();
+	private static ILogger logger = LogManager
+		.Setup()
+		.LoadConfigurationFromFile(string.Concat(Directory.GetCurrentDirectory(), "/nlog.config"))
+		.GetCurrentClassLogger();
 	
 	public LoggerManager()
 	{
