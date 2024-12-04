@@ -1,3 +1,6 @@
 {
-    "dotnet.defaultSolution": "WebApi.sln"
+    "dotnet.defaultSolution": "WebApi.sln",
+    "cSpell.words": [
+        "Xunit"
+    ]
 }
