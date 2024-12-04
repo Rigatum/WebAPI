@@ -1,7 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using WebAPI.Entities.Models;
 
-namespace Repository;
+namespace WebAPI.Repository;
+
 public class RepositoryContext : DbContext
 {
 	public RepositoryContext(DbContextOptions options)
