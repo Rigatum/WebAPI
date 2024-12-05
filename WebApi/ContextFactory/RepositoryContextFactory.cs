@@ -14,7 +14,7 @@ public class RepositoryContextFactory : IDesignTimeDbContextFactory<RepositoryCo
 			.Build();
 			
 		var builder = new DbContextOptionsBuilder<RepositoryContext>()
-			.UseSqlServer(configuration.GetConnectionString("sqlConnection"),
+			.UseSqlite(configuration.GetConnectionString("sqliteConnection"),
 				b => b.MigrationsAssembly("WebApi"));
 			
 		return new RepositoryContext(builder.Options);
