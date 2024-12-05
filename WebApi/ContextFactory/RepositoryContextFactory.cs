@@ -1,8 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
-using Microsoft.Extensions.Configuration;
+using Repository;
 
-namespace WebApi.Repository;
+namespace WebApi.ContextFactory;
 
 public class RepositoryContextFactory : IDesignTimeDbContextFactory<RepositoryContext>
 {
@@ -14,7 +14,8 @@ public class RepositoryContextFactory : IDesignTimeDbContextFactory<RepositoryCo
 			.Build();
 			
 		var builder = new DbContextOptionsBuilder<RepositoryContext>()
-			.UseSqlServer(configuration.GetConnectionString("sqlConnection"));
+			.UseSqlServer(configuration.GetConnectionString("sqlConnection"),
+				b => b.MigrationsAssembly("WebApi"));
 			
 		return new RepositoryContext(builder.Options);
 	}

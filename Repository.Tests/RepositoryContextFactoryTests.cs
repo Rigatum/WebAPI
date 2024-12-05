@@ -1,4 +1,4 @@
-using WebApi.Repository;
+using WebApi.ContextFactory;
 
 namespace Repository.Tests;
 
