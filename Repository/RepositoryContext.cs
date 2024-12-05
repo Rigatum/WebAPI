@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Entities.Models;
+using Repository.Configurations;
 
 namespace Repository;
 
@@ -10,7 +11,13 @@ public class RepositoryContext : DbContext
 	{
 		
 	}
-	
-	public DbSet<Company>? Companies { get; set; }
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.ApplyConfiguration(new CompanyConfiguration());
+        modelBuilder.ApplyConfiguration(new EmployeeConfiguration());
+    }
+
+    public DbSet<Company>? Companies { get; set; }
  	public DbSet<Employee>? Employees { get; set; }
 }
