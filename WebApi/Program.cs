@@ -1,3 +1,4 @@
+using Contracts;
 using WebApi.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -17,14 +18,11 @@ builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline
-if (app.Environment.IsDevelopment())
-{
-	app.UseSwagger();
-	app.UseSwaggerUI();
-	app.UseDeveloperExceptionPage();
-}
-else
+var logger = app.Services.GetRequiredService<ILoggerManager>();
+
+app.ConfigureExceptionHandler(logger);
+
+if (app.Environment.IsProduction())
 {
 	app.UseHsts();
 }
