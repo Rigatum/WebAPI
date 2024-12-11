@@ -401,3 +401,4 @@ FodyWeavers.xsd
 WebApi/CompanyEmployee.db-wal
 WebApi/CompanyEmployee.db
 WebApi/CompanyEmployee.db-shm
+WebApi/internal_logs/internallog.txt
